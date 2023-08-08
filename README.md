@@ -26,7 +26,7 @@
 * 下单结果查询: `quickQueryOrderResult`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderSearchService();
+    $data = new \SFQiao\Lib\Data\OrderSearchService();
     $data->orderId = '客户订单号';
     // 也可通过该参数指定查询类型
     $data->searchType = 1;
@@ -37,7 +37,7 @@
 * 快递路由查询: `quickQueryOrderRoute`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_RouteService();
+    $data = new \SFQiao\Lib\Data\RouteService();
     $data->trackingNumber = '顺丰运单号/客户订单号/逆向单原始订单号, 根据trackingType属性区分';
     $app->quickQueryOrderRoute($data);
 ?>
@@ -46,7 +46,7 @@
 * 筛选订单: `quickFilterOrder`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderFilterService();
+    $data = new \SFQiao\Lib\Data\OrderFilterService();
     $data->orderId = 'TEST20180410003';
     $data->dAddress = '广东省深圳市南山区学府路软件产业基地1栋B座';
     $app->quickFilterOrder($data);
@@ -56,7 +56,7 @@
 * 生成子单号: `quickApplySubOrderNo`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderZDService();
+    $data = new \SFQiao\Lib\Data\OrderZDService();
     $data->orderId = '客户订单号';
     // 新增包裹数量
     $data->parcelQuantity = 2;
@@ -67,7 +67,7 @@
 * 确认/取消订单: `quickConfirmOrCancelOrder`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderConfirmService();
+    $data = new \SFQiao\Lib\Data\OrderConfirmService();
     $data->dealType = 2;
     $data->orderId = '客户订单号';
     // 取消订单正常, 确认订单不太正常
@@ -78,7 +78,7 @@
 * 下单: `quickOrderMainland`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderService();
+    $data = new \SFQiao\Lib\Data\OrderService();
     $data->orderId = 'TEST20180410009';
     $data->expressType = '1';
     $data->sender->jProvince = '广东省';
@@ -117,7 +117,7 @@
 * 下单(跨境件): `quickOrderCrossBorder`
 ```php
 <?php
-    $data = new \SFQiao\Lib\Data\Data_OrderServiceCrossBorder();
+    $data = new \SFQiao\Lib\Data\OrderServiceCrossBorder();
     $data->orderId = 'QIAO-KA20171231003';
     $data->sender->jProvince = 'Singapore';
     $data->sender->jCity = 'Singapore';
