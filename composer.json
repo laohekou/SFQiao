@@ -10,13 +10,6 @@
         "ext-json": "*"
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "",
-            "email": ""
-        }
-    ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "SFQiao\\": "src/"
