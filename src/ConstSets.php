@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace SFQiao\Lib;
+namespace SFQiao;
 
 
 /**
  * Class ConstSets
- * @package SFQiao\Lib
+ * @package SFQiao
  */
 final class ConstSets
 {

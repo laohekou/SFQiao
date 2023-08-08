@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 use SFQiao\SFQiaoSDK;
-use SFQiao\Lib\Conf;
+use SFQiao\Conf;
 $result = false;
 $conf = [
     'customerCode' => 'QC_jMKZZ',
@@ -10,7 +10,7 @@ $conf = [
     'cusTid' => '7551234567'
 ];
 $conf = (new Conf())->setConfMulti($conf);
-$data = new \SFQiao\Lib\Data\OrderSearchService();
+$data = new \SFQiao\Data\OrderSearchService();
 $data->orderId = 'TEST20180410003';
 $app = new SFQiaoSDK();
 //$result = $app->setConf($conf)->quickQueryOrderResult($data);
@@ -21,26 +21,26 @@ $app = new SFQiaoSDK();
 //    string(3) "755"
 //    ["orderid"]=>
 //    string(15) "TEST20180410003"
-$data = new \SFQiao\Lib\Data\RouteService();
+$data = new \SFQiao\Data\RouteService();
 $data->trackingNumber = 'SF7444404841309';
 
 //$result = $app->setConf($conf)->quickQueryOrderRoute($data);
 //var_dump($result);
 //die();
 
-$data = new \SFQiao\Lib\Data\OrderFilterService();
+$data = new \SFQiao\Data\OrderFilterService();
 $data->orderId = 'TEST20180410003';
 $data->dAddress = '广东省深圳市南山区学府路软件产业基地1栋B座';
 //$result = $app->setConf($conf)->quickFilterOrder($data);
 //var_dump($result);
 //die();
-$data = new \SFQiao\Lib\Data\OrderZDService();
+$data = new \SFQiao\Data\OrderZDService();
 $data->orderId = 'TEST20180410002';
 $data->parcelQuantity = 2;
 //$result = $app->setConf($conf)->quickApplySubOrderNo($data);
 //var_dump($result);
 //die();
-$data = new \SFQiao\Lib\Data\OrderConfirmService();
+$data = new \SFQiao\Data\OrderConfirmService();
 $data->dealType = 1;
 $data->orderId = 'TEST20180410009';
 $data->mailNo = 'SF7444404842163';
@@ -49,7 +49,7 @@ $data->orderConfirmOption->weight = 22;
 //$result = $app->setConf($conf)->quickConfirmOrCancelOrder($data);
 //var_dump($result);
 //die();
-$data = new \SFQiao\Lib\Data\OrderService();
+$data = new \SFQiao\Data\OrderService();
 $data->orderId = 'TEST20180410009';
 $data->expressType = '1';
 $data->sender->jProvince = '广东省';
@@ -85,7 +85,7 @@ $data->cargoArr = [$news, $newsB];
 //var_dump($result);
 //die();
 
-$data = new \SFQiao\Lib\Data\OrderServiceCrossBorder();
+$data = new \SFQiao\Data\OrderServiceCrossBorder();
 $data->orderId = 'QIAO-KA20171231003';
 $data->sender->jProvince = 'Singapore';
 $data->sender->jCity = 'Singapore';

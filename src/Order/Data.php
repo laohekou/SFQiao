@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
-use SFQiao\Lib\ConstSets;
-use SFQiao\Lib\Tool;
-use SFQiao\Lib\Traits\TraitConf;
+namespace SFQiao\Order;
+use SFQiao\ConstSets;
+use SFQiao\Tool;
+use SFQiao\Traits\TraitConf;
 
 
 /**
  * Class Data
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class Data
 {

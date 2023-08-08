@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class RouteService
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class RouteService extends Data
 {

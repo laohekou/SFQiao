@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace SFQiao\Lib;
+namespace SFQiao;
 
-use SFQiao\Lib\Exception\QException;
+use SFQiao\Exception\QException;
 
 /**
  * Class Conf
- * @package SFQiao\Lib
+ * @package SFQiao
  */
 class Conf
 {

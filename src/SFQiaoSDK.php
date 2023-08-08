@@ -3,10 +3,10 @@
 declare(strict_types=1);
 namespace SFQiao;
 use GuzzleHttp\Client;
-use SFQiao\Lib\Tool;
-use SFQiao\Lib\Traits\TraitConf;
-use SFQiao\Lib\Traits\TraitResult;
-use SFQiao\Lib\Data\Data;
+use SFQiao\Tool;
+use SFQiao\Traits\TraitConf;
+use SFQiao\Traits\TraitResult;
+use SFQiao\Data\Data;
 
 /**
  * Class SFQiaoSDK
@@ -57,12 +57,12 @@ class SFQiaoSDK
 
     /**
      * 订单下单结果查询
-     * @param \SFQiao\Lib\Data\OrderSearchService $data 订单下单结果查询数据模型
+     * @param \SFQiao\Data\OrderSearchService $data 订单下单结果查询数据模型
      * @param bool $resultWithInitInfo 返回数据是否包含原始请求和响应数据
      * @return array|null
      * @throws lib\exception\QException
      */
-    public function quickQueryOrderResult(\SFQiao\Lib\Data\OrderSearchService $data, bool $resultWithInitInfo = false): ?array
+    public function quickQueryOrderResult(\SFQiao\Data\OrderSearchService $data, bool $resultWithInitInfo = false): ?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -83,7 +83,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickQueryOrderRoute(\SFQiao\Lib\Data\RouteService $data, bool $resultWithInitInfo = false):?array
+    public function quickQueryOrderRoute(\SFQiao\Data\RouteService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -104,7 +104,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickFilterOrder(\SFQiao\Lib\Data\OrderFilterService $data, bool $resultWithInitInfo = false):?array
+    public function quickFilterOrder(\SFQiao\Data\OrderFilterService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -125,7 +125,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickApplySubOrderNo(\SFQiao\Lib\Data\OrderZDService $data, bool $resultWithInitInfo = false):?array
+    public function quickApplySubOrderNo(\SFQiao\Data\OrderZDService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -146,7 +146,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickConfirmOrCancelOrder(\SFQiao\Lib\Data\OrderConfirmService $data, bool $resultWithInitInfo = false):?array
+    public function quickConfirmOrCancelOrder(\SFQiao\Data\OrderConfirmService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -167,7 +167,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickOrderMainland(\SFQiao\Lib\Data\OrderService $data, bool $resultWithInitInfo = false):?array
+    public function quickOrderMainland(\SFQiao\Data\OrderService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -195,7 +195,7 @@ class SFQiaoSDK
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickOrderCrossBorder(\SFQiao\Lib\Data\OrderServiceCrossBorder $data, bool $resultWithInitInfo = false):?array
+    public function quickOrderCrossBorder(\SFQiao\Data\OrderServiceCrossBorder $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);

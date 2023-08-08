@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Traits;
-use \SFQiao\Lib\Conf;
+namespace SFQiao\Traits;
+use \SFQiao\Conf;
 
 
 /**
  * Trait TraitConf
- * @package SFQiao\Lib\Traits
+ * @package SFQiao\Traits
  */
 trait TraitConf
 {

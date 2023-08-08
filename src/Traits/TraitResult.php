@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Traits;
+namespace SFQiao\Traits;
 use SFQiao\Result;
 
 
 /**
  * Trait TraitResult
- * @package SFQiao\Lib\Traits
+ * @package SFQiao\Traits
  */
 trait TraitResult
 {

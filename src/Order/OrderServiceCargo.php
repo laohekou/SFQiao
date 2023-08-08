@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class OrderServiceCargo
  * 下单产品数据模型
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderServiceCargo extends Data
 {

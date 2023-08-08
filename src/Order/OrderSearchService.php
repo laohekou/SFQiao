@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class OSS 订单结果查询服务数据模型
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderSearchService extends Data
 {

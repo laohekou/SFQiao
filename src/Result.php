@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace SFQiao;
 use GuzzleHttp\Psr7\Response;
-use SFQiao\Lib\Tool;
+use SFQiao\Tool;
 
 
 /**

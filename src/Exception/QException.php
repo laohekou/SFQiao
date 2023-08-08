@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace SFQiao\Lib\Exception;
+namespace SFQiao\Exception;
 
 /**
  * Class QException
- * @package SFQiao\Lib\Exception
+ * @package SFQiao\Exception
  */
 class QException extends \Exception
 {

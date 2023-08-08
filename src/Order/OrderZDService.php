@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class OrderZDService
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderZDService extends Data
 {

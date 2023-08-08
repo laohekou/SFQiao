@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class OrderServiceSender 下单寄件人数据模型
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderServiceSender extends Data
 {

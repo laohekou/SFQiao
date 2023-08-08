@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * Class OrderConfirmOption 订单确认可选参数数据模型
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderConfirmOption extends Data
 {

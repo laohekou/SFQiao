@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SFQiao\Lib\Data;
+namespace SFQiao\Order;
 
 
 /**
  * 订单筛选可选项数据模型
  * Class OrderFilterOption
- * @package SFQiao\Lib\Data
+ * @package SFQiao\Order
  */
 class OrderFilterOption extends Data
 {
