@@ -1,5 +1,5 @@
 {
-    "name": "speauty/sf-qiao",
+    "name": "xyu/sf-qiao",
     "description": "顺丰丰桥系统对接PHP版",
     "type": "library",
     "require": {
@@ -12,8 +12,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "speauty",
-            "email": "speauty@163.com"
+            "name": "",
+            "email": ""
         }
     ],
     "minimum-stability": "dev",
