@@ -76,7 +76,7 @@ class Tool
     static public function convertXml2Arr($xml):?array
     {
         if (\PHP_VERSION_ID < 80000) {
-            xml_disable_entity_loader(true);
+            \xml_disable_entity_loader(true);
             return json_decode(json_encode(\simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true) ?: null;
         }else{
             $doc = new \DOMDocument();

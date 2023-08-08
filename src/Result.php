@@ -3,7 +3,6 @@
 declare(strict_types=1);
 namespace SFQiao;
 use GuzzleHttp\Psr7\Response;
-use SFQiao\Tool;
 
 
 /**
@@ -41,7 +40,7 @@ class Result
      * @param bool $withInitInfo 返回数据是否包含原始请求和响应数据
      * @return array
      */
-    public function getResult(bool $withInitInfo = false)
+    public function getResult(bool $withInitInfo = false): array
     {
         if ($this->response()->getStatusCode() != 200) {
             $this->result['msg'] = $this->response()->getReasonPhrase();

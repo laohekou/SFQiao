@@ -12,11 +12,11 @@ use SFQiao\Exception\QException;
 class Conf
 {
     /** @var string 顾客编码 */
-    public $customerCode = "";
+    public $customerCode = '';
     /** @var string 校验码 */
-    public $checkWord = "";
+    public $checkWord = '';
     /** @var string 顺丰月结卡号 */
-    public $cusTid = "";
+    public $cusTid = '';
     /** @var string 请求地址 */
     public $requestUri = ConstSets::REQUEST_URI_DEFAULT;
 
@@ -26,10 +26,13 @@ class Conf
         return $this;
     }
 
+    /**
+     * @throws QException
+     */
     public function validate():void
     {
         $properties = get_object_vars($this);
-        if (!$properties) throw New QException("the conf property not set.");
+        if (!$properties) throw New QException('the conf property not set.');
         foreach ($properties as $k => $v) {
             if (!$v) throw New QException("the conf property {$k} is empty.");
         }
