@@ -1,10 +1,5 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Tool.php
- * Created: 2020-04-09 02:06:29
- */
+
 declare(strict_types=1);
 namespace SFQiao\Lib;
 
@@ -78,10 +73,25 @@ class Tool
      * @param $xmlStr
      * @return array|null
      */
-    static public function convertXml2Arr($xmlStr):?array
+    static public function convertXml2Arr($xml):?array
     {
-        libxml_disable_entity_loader(true);
-        return json_decode(json_encode(simplexml_load_string($xmlStr, 'SimpleXMLElement', LIBXML_NOCDATA)), true)?:null;
+        if (\PHP_VERSION_ID < 80000) {
+            \libxml_disable_entity_loader(true);
+            return json_decode(json_encode(\simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true) ?: null;
+        }else{
+            $doc = new \DOMDocument();
+            $doc->loadXML($xml);
+            $xml = $doc->getElementsByTagName( 'xml' );
+            $result = [];
+            foreach( $xml as $k => $val ){
+                foreach($val->childNodes as $v){
+                    if(!empty($v->tagName)){
+                        $result[$v->tagName]=$v->nodeValue;
+                    }
+                }
+            }
+            return $result;
+        }
     }
 
     static public function getRealName(string $keyName):string

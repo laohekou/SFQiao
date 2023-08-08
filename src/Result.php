@@ -1,13 +1,8 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Result.php
- * Created: 2020-04-09 06:54:56
- */
+
 declare(strict_types=1);
 namespace SFQiao;
-use \GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Response;
 use SFQiao\Lib\Tool;
 
 
@@ -53,7 +48,7 @@ class Result
         } else {
             $this->initResponseStr = $this->response()->getBody()->getContents();
             $bodyContent = Tool::convertXml2Arr($this->initResponseStr);
-            if (!$bodyContent) {
+            if (! $bodyContent) {
                 $this->result['msg'] = '数据解析异常';
                 $this->result['data'] = $this->response()->getBody()->getContents();
             } else {
@@ -72,9 +67,4 @@ class Result
         return $this->result;
     }
 
-    public function getResultSimple(array $result):?array
-    {
-        $result = null;
-        return null;
-    }
 }

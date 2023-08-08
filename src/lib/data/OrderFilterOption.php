@@ -1,23 +1,16 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderFilterOption.php
- * Created: 2020-04-09 22:21:54
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
-use SFQiao\Lib\Tool;
-
 /**
  * 订单筛选可选项数据模型
- * Class Data_OrderFilterOption
+ * Class OrderFilterOption
  * @package SFQiao\Lib\Data
  */
-class Data_OrderFilterOption extends Data
+class OrderFilterOption extends Data
 {
     /** @var string 寄件方电话 */
     public $jTel = '';

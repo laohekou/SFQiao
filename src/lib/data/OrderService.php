@@ -1,23 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderService.php
- * Created: 2020-04-09 23:16:38
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
-use SFQiao\Lib\ConstSets;
-use SFQiao\Lib\Tool;
-
 /**
- * Class Data_OrderService
+ * Class OrderService
  * @package SFQiao\Lib\Data
  */
-class Data_OrderService extends Data
+class OrderService extends Data
 {
     /** @var string 服务映射键名 */
     public $serviceNameMapKey = 'OrderService';
@@ -26,9 +18,9 @@ class Data_OrderService extends Data
     public $orderId = "";
     /** @var string 顺丰母运单号 如果dealtype=1,必填 */
     public $mailNo = '';
-    /** @var Data_OrderServiceSender|null 寄件人数据模型 */
+    /** @var OrderServiceSender|null 寄件人数据模型 */
     public $sender = null;
-    /** @var Data_OrderServiceReceiver|null 收件人数据模型 */
+    /** @var OrderServiceReceiver|null 收件人数据模型 */
     public $receiver = null;
     /** @var string 顺丰月结卡号 */
     public $cusTid = '';
@@ -117,23 +109,22 @@ class Data_OrderService extends Data
     public $routeLabelService = 0;
     /** @var int 是否使用国家统一面单号 1-是, 0-否 */
     public $isUnifiedWaybillNo = 0;
-    /** @var Data_OrderServiceCargo[]|null 下单产品数据模型组 */
+    /** @var OrderServiceCargo[]|null 下单产品数据模型组 */
     public $cargoArr = null;
 
     public function __construct()
     {
-        $this->sender = new Data_OrderServiceSender();
-        $this->receiver = new Data_OrderServiceReceiver();
+        $this->sender = new OrderServiceSender();
+        $this->receiver = new OrderServiceReceiver();
     }
 
-    public function cargo():Data_OrderServiceCargo
+    public function cargo():OrderServiceCargo
     {
-        return new Data_OrderServiceCargo();
+        return new OrderServiceCargo();
     }
 
     public function getData():?array
     {
-        $result = $this->loadPublicParams($this);
-        return $result;
+        return $this->loadPublicParams($this);
     }
 }

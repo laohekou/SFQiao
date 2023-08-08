@@ -1,22 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderServiceSender.php
- * Created: 2020-04-09 23:19:52
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
-use SFQiao\Lib\Tool;
-
 /**
- * Class Data_OrderServiceSender 下单寄件人数据模型
+ * Class OrderServiceSender 下单寄件人数据模型
  * @package SFQiao\Lib\Data
  */
-class Data_OrderServiceSender extends Data
+class OrderServiceSender extends Data
 {
     /** @var string 寄件方公司名称,如果需要生成电子面单,则为必填 */
     public $jCompany = '';

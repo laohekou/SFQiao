@@ -1,10 +1,5 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    ConstSets.php
- * Created: 2020-04-09 00:50:40
- */
+
 declare(strict_types=1);
 namespace SFQiao\Lib;
 

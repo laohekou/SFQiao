@@ -1,19 +1,14 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderFilterService.php
- * Created: 2020-04-09 22:17:39
- */
+
 declare(strict_types=1);
 namespace SFQiao\Lib\Data;
 
 
 /**
- * Class Data_OrderFilterService
+ * Class OrderFilterService
  * @package SFQiao\Lib\Data
  */
-class Data_OrderFilterService extends Data
+class OrderFilterService extends Data
 {
     /** @var string 服务映射键名 */
     public $serviceNameMapKey = 'OrderFilterService';
@@ -29,17 +24,16 @@ class Data_OrderFilterService extends Data
     public $orderId = '';
     /** @var string 到件方详细地址,需要包括省市区 */
     public $dAddress = '';
-    /** @var Data_OrderFilterOption|null 订单筛选可选项数据模型 */
+    /** @var OrderFilterOption|null 订单筛选可选项数据模型 */
     public $orderFilterOption = null;
 
     public function __construct()
     {
-        $this->orderFilterOption = new Data_OrderFilterOption();
+        $this->orderFilterOption = new OrderFilterOption();
     }
 
     public function getData():?array
     {
-        $result = $this->loadPublicParams($this);
-        return $result;
+        return $this->loadPublicParams($this);
     }
 }

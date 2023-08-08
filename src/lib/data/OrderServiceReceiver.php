@@ -1,22 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderServiceReceiver.php
- * Created: 2020-04-09 23:28:21
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
-use SFQiao\Lib\Tool;
-
 /**
- * Class Data_OrderServiceReceiver 下单收件人数据模型
+ * Class OrderServiceReceiver 下单收件人数据模型
  * @package SFQiao\Lib\Data
  */
-class Data_OrderServiceReceiver extends Data
+class OrderServiceReceiver extends Data
 {
     /** @var string 到件方公司名称 */
     public $dCompany = '';

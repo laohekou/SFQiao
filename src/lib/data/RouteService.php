@@ -1,20 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_RouteService.php
- * Created: 2020-04-09 19:46:06
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
 /**
- * Class Data_RouteService
+ * Class RouteService
  * @package SFQiao\Lib\Data
  */
-class Data_RouteService extends Data
+class RouteService extends Data
 {
     /** @var string 服务映射键名 */
     public $serviceNameMapKey = 'RouteService';
@@ -49,7 +44,6 @@ class Data_RouteService extends Data
 
     public function getData():?array
     {
-        $result = $this->loadPublicParams($this);
-        return $result;
+        return $this->loadPublicParams($this);
     }
 }

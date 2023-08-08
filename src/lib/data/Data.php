@@ -1,10 +1,5 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data.php
- * Created: 2020-04-09 01:27:21
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
@@ -53,13 +48,13 @@ class Data
             if (is_string($v) || is_integer($v)) {
                 $data[$rootName]['attributes'][$keyRealName] = $v;
             } else if (is_object($v)) {
-                if (is_object($v) && method_exists($v, 'getData')) {
+                if (method_exists($v, 'getData')) {
                     $tmp = $v->getData();
                     if ($tmp) $data[$rootName]['attributes'] = array_merge($data[$rootName]['attributes'], $tmp);
                 }
             } else if (is_array($v)) {
                 $tmpArr = [];
-                foreach ($v as $sk => $sv) {
+                foreach ($v as $sv) {
                     if (is_object($sv) && method_exists($sv, 'getData')) {
                         $tmpArr[] = $sv->getData();
                     }
@@ -79,7 +74,7 @@ class Data
 
     final public function getXmlStr(): string
     {
-        $xmlHeader = '<Request service="' . $this->getServiceName('serviceName') . '" lang="zh-CN"><Head>' . $this->conf()->customerCode . '</Head><Body>%s</Body></Request>';
+        $xmlHeader = '<Request service="' . $this->getServiceName('serviceName') . '" lang="zh-CN"><Head>' . $this->conf()->customerCode . '<title></title></Head><Body>%s</Body></Request>';
         return sprintf($xmlHeader, Tool::createXmlRecursion($this->getData()));
     }
 

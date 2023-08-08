@@ -1,10 +1,5 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    SFQiaoSDK.php
- * Created: 2020-04-09 01:18:53
- */
+
 declare(strict_types=1);
 namespace SFQiao;
 use GuzzleHttp\Client;
@@ -62,12 +57,12 @@ class SFQiaoSDK
 
     /**
      * 订单下单结果查询
-     * @param \SFQiao\Lib\Data\Data_OrderSearchService $data 订单下单结果查询数据模型
+     * @param \SFQiao\Lib\Data\OrderSearchService $data 订单下单结果查询数据模型
      * @param bool $resultWithInitInfo 返回数据是否包含原始请求和响应数据
      * @return array|null
      * @throws lib\exception\QException
      */
-    public function quickQueryOrderResult(\SFQiao\Lib\Data\Data_OrderSearchService $data, bool $resultWithInitInfo = false): ?array
+    public function quickQueryOrderResult(\SFQiao\Lib\Data\OrderSearchService $data, bool $resultWithInitInfo = false): ?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -83,12 +78,12 @@ class SFQiaoSDK
 
     /**
      * 快递路由查询
-     * @param Lib\Data\Data_RouteService $data
+     * @param Lib\Data\RouteService $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickQueryOrderRoute(\SFQiao\Lib\Data\Data_RouteService $data, bool $resultWithInitInfo = false):?array
+    public function quickQueryOrderRoute(\SFQiao\Lib\Data\RouteService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -104,12 +99,12 @@ class SFQiaoSDK
 
     /**
      * 筛选订单
-     * @param Lib\Data\Data_OrderFilterService $data
+     * @param Lib\Data\OrderFilterService $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickFilterOrder(\SFQiao\Lib\Data\Data_OrderFilterService $data, bool $resultWithInitInfo = false):?array
+    public function quickFilterOrder(\SFQiao\Lib\Data\OrderFilterService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -125,12 +120,12 @@ class SFQiaoSDK
 
     /**
      * 生成子单号
-     * @param Lib\Data\Data_OrderZDService $data
+     * @param Lib\Data\OrderZDService $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickApplySubOrderNo(\SFQiao\Lib\Data\Data_OrderZDService $data, bool $resultWithInitInfo = false):?array
+    public function quickApplySubOrderNo(\SFQiao\Lib\Data\OrderZDService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -146,12 +141,12 @@ class SFQiaoSDK
 
     /**
      * 确认或取消订单
-     * @param Lib\Data\Data_OrderConfirmService $data
+     * @param Lib\Data\OrderConfirmService $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickConfirmOrCancelOrder(\SFQiao\Lib\Data\Data_OrderConfirmService $data, bool $resultWithInitInfo = false):?array
+    public function quickConfirmOrCancelOrder(\SFQiao\Lib\Data\OrderConfirmService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -167,12 +162,12 @@ class SFQiaoSDK
 
     /**
      * 下单
-     * @param Lib\Data\Data_OrderService $data
+     * @param Lib\Data\OrderService $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickOrderMainland(\SFQiao\Lib\Data\Data_OrderService $data, bool $resultWithInitInfo = false):?array
+    public function quickOrderMainland(\SFQiao\Lib\Data\OrderService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
@@ -195,19 +190,17 @@ class SFQiaoSDK
 
     /**
      * 下单(国际件)
-     * @param Lib\Data\Data_OrderServiceCrossBorder $data
+     * @param Lib\Data\OrderServiceCrossBorder $data
      * @param bool $resultWithInitInfo
      * @return array|null
      * @throws Lib\Exception\QException
      */
-    public function quickOrderCrossBorder(\SFQiao\Lib\Data\Data_OrderServiceCrossBorder $data, bool $resultWithInitInfo = false):?array
+    public function quickOrderCrossBorder(\SFQiao\Lib\Data\OrderServiceCrossBorder $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
         $result = $this->result()->getResult($resultWithInitInfo);
-        if (
-            isset($result['data']) && $result['data']
-        ) {
-            $result['data'] = $result['data'];
+        if (! isset($result['data']) || ! $result['data']) {
+            return null;
         }
         return $result;
     }

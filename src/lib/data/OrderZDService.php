@@ -1,19 +1,14 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderZDService.php
- * Created: 2020-04-09 22:45:43
- */
+
 declare(strict_types=1);
 namespace SFQiao\Lib\Data;
 
 
 /**
- * Class Data_OrderZDService
+ * Class OrderZDService
  * @package SFQiao\Lib\Data
  */
-class Data_OrderZDService extends Data
+class OrderZDService extends Data
 {
     /** @var string 服务映射键名 */
     public $serviceNameMapKey = 'OrderZDService';
@@ -25,7 +20,6 @@ class Data_OrderZDService extends Data
 
     public function getData(): ?array
     {
-        $result = $this->loadPublicParams($this);
-        return $result;
+        return $this->loadPublicParams($this);
     }
 }

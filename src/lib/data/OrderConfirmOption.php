@@ -1,22 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderConfirmOption.php
- * Created: 2020-04-09 22:59:04
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
-use SFQiao\Lib\Tool;
-
 /**
- * Class Data_OrderConfirmOption 订单确认可选参数数据模型
+ * Class OrderConfirmOption 订单确认可选参数数据模型
  * @package SFQiao\Lib\Data
  */
-class Data_OrderConfirmOption extends Data
+class OrderConfirmOption extends Data
 {
     /**
      * @var int 订单货物总重量

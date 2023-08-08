@@ -1,20 +1,15 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    Data_OrderConfirmService.php
- * Created: 2020-04-09 22:54:18
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Data;
 
 
 /**
- * Class Data_OrderConfirmService
+ * Class OrderConfirmService
  * @package SFQiao\Lib\Data
  */
-class Data_OrderConfirmService extends Data
+class OrderConfirmService extends Data
 {
     /** @var string 服务映射键名 */
     public $serviceNameMapKey = 'OrderConfirmService';
@@ -37,17 +32,16 @@ class Data_OrderConfirmService extends Data
     public $sourceZoneCode = '';
     /** @var string 头程运单号 */
     public $inProcessWaybillNo = '';
-    /** @var Data_OrderConfirmOption|null 订单确认可选参数数据模型 */
+    /** @var OrderConfirmOption|null 订单确认可选参数数据模型 */
     public $orderConfirmOption = null;
 
     public function __construct()
     {
-        $this->orderConfirmOption = new Data_OrderConfirmOption();
+        $this->orderConfirmOption = new OrderConfirmOption();
     }
 
     public function getData():?array
     {
-        $result = $this->loadPublicParams($this);
-        return $result;
+        return $this->loadPublicParams($this);
     }
 }

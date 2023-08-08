@@ -1,10 +1,5 @@
 <?php
-/**
- * Author:  Speauty
- * Email:   speauty@163.com
- * File:    TraitResult.php
- * Created: 2020-04-09 07:07:59
- */
+
 declare(strict_types=1);
 
 namespace SFQiao\Lib\Traits;
