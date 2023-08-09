@@ -3,18 +3,16 @@
 declare(strict_types=1);
 
 namespace SFQiao\Order;
+use SFQiao\AbstractGateway;
 use SFQiao\ConstSets;
 use SFQiao\Tool;
-use SFQiao\Traits\TraitConf;
-
 
 /**
  * Class Data
  * @package SFQiao\Order
  */
-class Data
+class Data extends AbstractGateway
 {
-    use TraitConf;
     protected $serviceNameMapKey = '';
     private $ignoreKeyArr = [
         'conf', 'ignoreKeyArr', 'serviceNameMapKey'
@@ -74,7 +72,7 @@ class Data
 
     final public function getXmlStr(): string
     {
-        $xmlHeader = '<Request service="' . $this->getServiceName('serviceName') . '" lang="zh-CN"><Head>' . $this->conf()->customerCode . '<title></title></Head><Body>%s</Body></Request>';
+        $xmlHeader = '<Request service="' . $this->getServiceName('serviceName') . '" lang="zh-CN"><Head>' . $this->customerCode . '</Head><Body>%s</Body></Request>';
         return sprintf($xmlHeader, Tool::createXmlRecursion($this->getData()));
     }
 

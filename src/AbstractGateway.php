@@ -1,16 +1,27 @@
 <?php
 
 declare(strict_types=1);
+
 namespace SFQiao;
+
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
-
 /**
- * Class Result
+ * Class AbstractGateway
  * @package SFQiao
  */
-class Result
+class AbstractGateway
 {
+    /** @var string 顾客编码 */
+    public $customerCode = '';
+    /** @var string 校验码 */
+    public $checkWord = '';
+    /** @var string 顺丰月结卡号 */
+    public $cusTid = '';
+    /** @var string 请求地址 */
+    public $requestUri = ConstSets::REQUEST_URI_DEFAULT;
+
     private $result = [
         'state' => false,
         'msg' => '',
@@ -20,12 +31,26 @@ class Result
     private $initRequestStr = '';
     private $initResponseStr = '';
 
+    protected function request(array $postData):void
+    {
+        $client = new Client;
+        $result = $client->request('POST', $this->requestUri, [
+            'headers' => [
+                'Content-type' => 'application/x-www-form-urlencoded',
+                'charset' => 'utf-8'
+            ],
+            'form_params' => $postData
+        ]);
+        $this->setInitRequest($postData);
+        $this->setResponse($result);
+    }
+
     public function response():?Response
     {
         return $this->response;
     }
 
-    public function setResponse(Response $response):Void
+    public function setResponse(\Psr\Http\Message\ResponseInterface $response):Void
     {
         $this->response = $response;
     }

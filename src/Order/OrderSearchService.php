@@ -14,7 +14,7 @@ class OrderSearchService extends Data
     /** @var string 服务映射键名 */
     protected $serviceNameMapKey = 'OrderSearchService';
     /** @var string 客户订单号 */
-    public $orderId = "";
+    public $orderId = '';
     /**
      * @var string 查询类型
      * 1. 正向单查询, 传入的orderid为正向定单号

@@ -15,7 +15,7 @@ class OrderService extends Data
     public $serviceNameMapKey = 'OrderService';
 
     /** @var string 客户订单号 */
-    public $orderId = "";
+    public $orderId = '';
     /** @var string 顺丰母运单号 如果dealtype=1,必填 */
     public $mailNo = '';
     /** @var OrderServiceSender|null 寄件人数据模型 */

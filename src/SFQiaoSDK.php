@@ -1,43 +1,27 @@
 <?php
 
 declare(strict_types=1);
+
 namespace SFQiao;
-use GuzzleHttp\Client;
+
+use SFQiao\Exception\QException;
 use SFQiao\Order\Data;
-use SFQiao\Traits\TraitConf;
-use SFQiao\Traits\TraitResult;
 
 /**
  * Class SFQiaoSDK
  * @package SFQiao
  */
-class SFQiaoSDK
+class SFQiaoSDK extends AbstractGateway
 {
-    use TraitConf, TraitResult;
 
-    public function __construct()
+    public function setConf(array $conf): SFQiaoSDK
     {
-        $this->zero();
-    }
+        foreach ($conf as $k => $v){
+            if (property_exists($this, $k) && $v) $this->$k = $v;
+            if(! $v) throw new QException("the conf property {$k} is empty.");
+        }
 
-    private function zero():void
-    {
-        $this->initConf();
-        $this->initResult();
-    }
-
-    private function request(?array $postData):void
-    {
-        $client = new Client();
-        $result = $client->request('POST', $this->conf()->requestUri, [
-            'headers' => [
-                'Content-type' => 'application/x-www-form-urlencoded',
-                'charset' => 'utf-8'
-            ],
-            'form_params' => $postData
-        ]);
-        $this->result()->setInitRequest($postData);
-        $this->result()->setResponse($result);
+        return $this;
     }
 
     /**
@@ -46,10 +30,8 @@ class SFQiaoSDK
      */
     private function preRequestProcess(Data $data):void
     {
-        $data->setConf($this->conf);
-        $this->conf()->validate();
         $xmlStr = $data->getXmlStr();
-        $verifyCode = Tool::getVerifyCode($xmlStr, $this->conf()->checkWord);
+        $verifyCode = Tool::getVerifyCode($xmlStr, $this->checkWord);
         $postData = ['xml' => $xmlStr, 'verifyCode' => $verifyCode];
         $this->request($postData);
     }
@@ -64,7 +46,7 @@ class SFQiaoSDK
     public function quickQueryOrderResult(\SFQiao\Order\OrderSearchService $data, bool $resultWithInitInfo = false): ?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) && $result['data'] &&
             isset($result['data']['OrderResponse']) && $result['data']['OrderResponse'] &&
@@ -85,7 +67,7 @@ class SFQiaoSDK
     public function quickQueryOrderRoute(\SFQiao\Order\RouteService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) && $result['data'] &&
             isset($result['data']['OrderResponse']) && $result['data']['OrderResponse'] &&
@@ -106,7 +88,7 @@ class SFQiaoSDK
     public function quickFilterOrder(\SFQiao\Order\OrderFilterService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) && $result['data'] &&
             isset($result['data']['OrderFilterResponse']) && $result['data']['OrderFilterResponse'] &&
@@ -127,7 +109,7 @@ class SFQiaoSDK
     public function quickApplySubOrderNo(\SFQiao\Order\OrderZDService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) && $result['data'] &&
             isset($result['data']['OrderZDResponse']) && $result['data']['OrderZDResponse'] &&
@@ -148,7 +130,7 @@ class SFQiaoSDK
     public function quickConfirmOrCancelOrder(\SFQiao\Order\OrderConfirmService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) && $result['data'] &&
             isset($result['data']['OrderConfirmResponse']) && $result['data']['OrderConfirmResponse'] &&
@@ -169,7 +151,7 @@ class SFQiaoSDK
     public function quickOrderMainland(\SFQiao\Order\OrderService $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (
             isset($result['data']) &&
             $result['data'] &&
@@ -197,7 +179,7 @@ class SFQiaoSDK
     public function quickOrderCrossBorder(\SFQiao\Order\OrderServiceCrossBorder $data, bool $resultWithInitInfo = false):?array
     {
         $this->preRequestProcess($data);
-        $result = $this->result()->getResult($resultWithInitInfo);
+        $result = $this->getResult($resultWithInitInfo);
         if (! isset($result['data']) || ! $result['data']) {
             return null;
         }

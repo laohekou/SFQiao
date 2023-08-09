@@ -11,7 +11,7 @@ class QException extends \Exception
 {
     private $tagPrefix = 'SFQiao';
 
-    public function __construct($message = "", $code = 0, \Throwable $previous = null)
+    public function __construct($message = '', $code = 0, \Throwable $previous = null)
     {
         parent::__construct('['.$this->tagPrefix.']'.$message, $code, $previous);
     }

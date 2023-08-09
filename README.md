@@ -18,7 +18,6 @@
         'cusTid' => '顺丰月结卡号',
         'requestUri' => '请求地址'
     ];
-    $conf = (new Conf())->setConfMulti($conf);
     $app = (new SFQiaoSDK())->setConf($conf);
 ?>
 ``` 

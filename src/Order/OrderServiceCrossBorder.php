@@ -15,7 +15,7 @@ class OrderServiceCrossBorder extends Data
     public $serviceNameMapKey = 'OrderService';
 
     /** @var string 客户订单号 */
-    public $orderId = "";
+    public $orderId = '';
     /** @var string 顺丰母运单号 如果dealtype=1,必填 */
     public $mailNo = '';
     /** @var string 是否要求返回顺丰运单号 1-要求 其它为不要求 */
